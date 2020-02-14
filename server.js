@@ -16,7 +16,7 @@ io.on('connection', (socket) => {
   console.log('Client connected');
 
   // Create function to send status
-  sendStatus = function(status){
+  const sendStatus = function(status){
     socket.emit('status', status);
   }
 
