@@ -36,7 +36,7 @@ io.on('connection', (socket) => {
         message: 'Please enter a name and message'
       });
     } else {
-      socket.emit('output', [data]);
+      socket.emit('output', data);
       sendStatus({
         success: true,
         message: 'Message sent'
