@@ -23,8 +23,6 @@ io.on('connection', (socket) => {
   const sendStatus = function({success, message}){
     socket.emit('status', {success, message});
   }
-  
-  socket.emit('load');
 
   socket.on('disconnect', () => console.log('Client disconnected'));
 
@@ -46,5 +44,7 @@ io.on('connection', (socket) => {
     }
   })
 });
+
+io.emit('chatupdated');
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
