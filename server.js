@@ -14,7 +14,25 @@ const io = socketIO(server);
 
 io.on('connection', (socket) => {
   console.log('Client connected');
+
+  // Create function to send status
+  sendStatus = function(status){
+    socket.emit('status', status);
+  }
+
   socket.on('disconnect', () => console.log('Client disconnected'));
+
+  socket.on('input', (data) => {
+    const name = data.name;
+    const message = data.message;
+
+    if (!name || !message) {
+      sendStatus('Please enter a name and message');
+    } else {
+      socket.emit('output', [data]);
+      sendStatus('Message sent');
+    }
+  })
 });
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
