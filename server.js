@@ -23,6 +23,8 @@ io.on('connection', (socket) => {
   const sendStatus = function({success, message}){
     socket.emit('status', {success, message});
   }
+  
+  socket.emit('load');
 
   socket.on('disconnect', () => console.log('Client disconnected'));
 
