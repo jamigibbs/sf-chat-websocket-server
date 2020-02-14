@@ -1,0 +1,6 @@
+{
+  "name": "Salesforce Chat Component Websocket Server",
+  "description": "A webserver used for websocket data exchange.",
+  "repository": "https://github.com/jamigibbs/sf-chat-websocket-server",
+  "keywords": ["node", "websocket", "socket.io", "salesforce", "chat"]
+}
