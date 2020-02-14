@@ -16,8 +16,12 @@ io.on('connection', (socket) => {
   console.log('Client connected');
 
   // Create function to send status
-  const sendStatus = function(status){
-    socket.emit('status', status);
+  /***
+   * @param success {bool}
+   * @param message {string}
+   */
+  const sendStatus = function({success, message}){
+    socket.emit('status', {success, message});
   }
 
   socket.on('disconnect', () => console.log('Client disconnected'));
@@ -27,10 +31,16 @@ io.on('connection', (socket) => {
     const message = data.message;
 
     if (!name || !message) {
-      sendStatus('Please enter a name and message');
+      sendStatus({
+        success: false,
+        message: 'Please enter a name and message'
+      });
     } else {
       socket.emit('output', [data]);
-      sendStatus('Message sent');
+      sendStatus({
+        success: true,
+        message: 'Message sent'
+      });
     }
   })
 });
