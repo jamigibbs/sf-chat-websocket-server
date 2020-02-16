@@ -31,7 +31,7 @@ io.on('connection', (socket) => {
   // socket.emit('output', null);
 
   socket.on('transmit', (message) => {
-    socket.emit('chatupdated');
+    io.emit('chatupdated');
   });
 
   socket.on('input', (data) => {
