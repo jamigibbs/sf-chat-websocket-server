@@ -15,8 +15,8 @@ const io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('Client connected');
 
-  // Create function to send status
-  /***
+  /**
+   * Create function to send status
    * @param success {bool}
    * @param message {string}
    */
@@ -24,7 +24,18 @@ io.on('connection', (socket) => {
     socket.emit('status', {success, message});
   }
 
-  socket.on('disconnect', () => console.log('Client disconnected'));
+  /**
+   * When the client first connects, let the client know to load
+   * initial data. This works in @wire though?
+   */
+  // socket.emit('output', null);
+
+  socket.on('transmit', (message) => {
+    sendStatus({
+      success: true,
+      message
+    });
+  });
 
   socket.on('input', (data) => {
     const name = data.name;
@@ -43,8 +54,9 @@ io.on('connection', (socket) => {
       });
     }
   })
-});
 
-io.emit('chatupdated');
+  socket.on('disconnect', () => console.log('Client disconnected'));
+
+});
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
