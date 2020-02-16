@@ -23,14 +23,8 @@ io.on('connection', (socket) => {
   const sendStatus = function({success, message}){
     socket.emit('status', {success, message});
   }
-
-  /**
-   * When the client first connects, let the client know to load
-   * initial data. This works in @wire though?
-   */
-  // socket.emit('output', null);
-
-  socket.on('transmit', (message) => {
+  
+  socket.on('transmit', () => {
     io.emit('chatupdated');
   });
 
