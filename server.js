@@ -31,10 +31,7 @@ io.on('connection', (socket) => {
   // socket.emit('output', null);
 
   socket.on('transmit', (message) => {
-    sendStatus({
-      success: true,
-      message
-    });
+    socket.emit('chatupdated');
   });
 
   socket.on('input', (data) => {
