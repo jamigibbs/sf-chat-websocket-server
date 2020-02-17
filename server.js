@@ -32,6 +32,10 @@ io.on('connection', (socket) => {
     io.emit('istyping');
   });
 
+  socket.on('usernottyping', () => {
+    io.emit('nottyping');
+  });
+
   socket.on('input', (data) => {
     const name = data.name;
     const message = data.message;
