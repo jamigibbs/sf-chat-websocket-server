@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
   const sendStatus = function({success, message}){
     socket.emit('status', {success, message});
   }
-  
+
   socket.on('transmit', () => {
     io.emit('chatupdated');
   });
@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
       socket.emit('output', data);
       sendStatus({
         success: true,
-        message: 'Message sent'
+        message: 'Message updating...'
       });
     }
   })
