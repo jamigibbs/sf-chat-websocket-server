@@ -28,6 +28,10 @@ io.on('connection', (socket) => {
     io.emit('chatupdated');
   });
 
+  socket.on('usertyping', () => {
+    io.emit('istyping');
+  });
+
   socket.on('input', (data) => {
     const name = data.name;
     const message = data.message;
