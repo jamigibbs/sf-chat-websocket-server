@@ -28,8 +28,8 @@ io.on('connection', (socket) => {
     io.emit('chatupdated');
   });
 
-  socket.on('usertyping', () => {
-    io.emit('istyping');
+  socket.on('usertyping', (userData) => {
+    io.emit('istyping', userData);
   });
 
   socket.on('usernottyping', () => {
