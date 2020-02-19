@@ -28,12 +28,12 @@ io.on('connection', (socket) => {
     io.emit('chatupdated');
   });
 
-  socket.on('usertyping', (userData) => {
-    io.emit('istyping', userData);
+  socket.on('usertyping', (data) => {
+    io.emit('istyping', data);
   });
 
-  socket.on('usernottyping', () => {
-    io.emit('nottyping');
+  socket.on('usernottyping', (data) => {
+    io.emit('nottyping', data);
   });
 
   socket.on('input', (data) => {
