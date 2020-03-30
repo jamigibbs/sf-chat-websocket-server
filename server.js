@@ -33,10 +33,12 @@ io.on('connection', (socket) => {
   });
 
   socket.on('userEnteredChat', () => {
+    console.log('userEnteredChat')
     io.emit('refreshChatUsers');
   });
 
   socket.on('userLeftChat', () => {
+    console.log('userLeftChat')
     io.emit('refreshChatUsers');
   });
 
