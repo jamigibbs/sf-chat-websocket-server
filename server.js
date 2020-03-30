@@ -32,6 +32,14 @@ io.on('connection', (socket) => {
     io.emit('istyping', data);
   });
 
+  socket.on('userEnteredChat', () => {
+    io.emit('refreshChatUsers');
+  });
+
+  socket.on('userLeftChat', () => {
+    io.emit('refreshChatUsers');
+  });
+
   socket.on('usernottyping', (data) => {
     io.emit('nottyping', data);
   });
