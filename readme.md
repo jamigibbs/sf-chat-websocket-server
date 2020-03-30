@@ -1,6 +1,6 @@
 ## SF Chat Websocket Server
 
-See the blog past [Websocket Chat in Salesforce with Lightning Web Components](https://blog.jamigibbs.com/websockets-in-salesforce-with-lightning-web-components/) for more details.
+See the blog post [Websocket Chat in Salesforce with Lightning Web Components](https://blog.jamigibbs.com/websockets-in-salesforce-with-lightning-web-components/) for more details.
 
 Deploy this app for yourself on Heroku by clicking the button below:
 
